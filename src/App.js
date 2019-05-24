@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import * as d3 from 'd3';
-//import '../data/grafikas'
+
 
 class App extends Component {
   constructor(props) {
@@ -11,11 +11,16 @@ class App extends Component {
 
 
 componentDidMount(){
-  d3.csv("../data/grafikas.csv", function(data) {
-    for (var i = 0; i < 3; i++){
-      console.log(data[i].IsvezimoplanoID);
-    }
-  });
+
+  var json = require("./data/csvjson.json");
+  console.log(json);
+  
+  /*
+  d3.json(json, function(data) {
+    console.log(data);
+  })
+  */
+  
 
   d3.select(this.refs.temperatures)
   .selectAll("h2")
