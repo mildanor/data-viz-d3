@@ -13,7 +13,7 @@ class App extends Component {
 componentDidMount(){
   d3.csv("../data/grafikas.csv", function(data) {
     for (var i = 0; i < 3; i++){
-      console.log(data[i].Isvezimo plano ID);
+      console.log(data[i].IsvezimoplanoID);
     }
   });
 
