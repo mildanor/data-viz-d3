@@ -6,15 +6,24 @@ import * as d3 from 'd3';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state={temperatureData: [ 8, 5, 13, 9, 12 ]}
+    this.state={data: []}
   }
 
 
 componentDidMount(){
 
   var json = require("./data/csvjson.json");
-  console.log(json);
-  
+  //console.log(json);
+     let jsonNew= this.state.data;
+  for (var i = 0; i < 3; i++) {
+    var jsonItem = json[i].IsvezimoplanoID;
+    //console.log(jsonNew);
+     jsonNew.push([jsonItem]);
+          this.setState({
+            data: jsonNew,
+          });
+  }
+
   /*
   d3.json(json, function(data) {
     console.log(data);
@@ -24,12 +33,13 @@ componentDidMount(){
 
   d3.select(this.refs.temperatures)
   .selectAll("h2")
-  .data(this.state.temperatureData)
+  .data(this.state.data)
   .enter()
       .append("h2")
-      .text("New Temperature")    
+      .text(this.state.data)    
 }
 
+/*
 componentDidUpdate(){
   d3.select(this.refs.temperatures)
     .selectAll("h2")
@@ -38,6 +48,7 @@ componentDidUpdate(){
         .append("h2")
         .text("New Temperature")
 }
+*/
 
 
 
