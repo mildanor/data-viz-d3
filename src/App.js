@@ -31,14 +31,14 @@ var width = +svg.attr("width");
 var height = +svg.attr("height");
 
 var projection = d3.geoMercator()
-    .center([2, 47])                // GPS of location to zoom on
-    .scale(1080)                       // This is like the zoom
+    .center([23,55])                // GPS of location to zoom on
+    .scale(1780)                       // This is like the zoom
     .translate([ width/2, height/2 ])
 
 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
   .then(function(data){
     // Code from your callback goes here...
-    data.features = data.features.filter(function(d){/*console.log(d.properties.name)*/ ; return d.properties.name==="France"})
+    data.features = data.features.filter(function(d){/*console.log(d.properties.name)*/ ; return d.properties.name==="Lithuania"})
    // console.log(data.features)
    // Draw the map
     svg.append("g")
